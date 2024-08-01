@@ -28,12 +28,9 @@ export const Home = () => {
     setActiveTab(newValue);
   };
 
-  // Переконайтеся, що posts.items є масивом
-  const displayedPosts = Array.isArray(posts.items) ? posts.items : [];
+  const sortedPosts = [...posts.items].sort((a, b) => b.viewsCount - a.viewsCount);
 
-  const sortedPosts = [...displayedPosts].sort((a, b) => b.viewsCount - a.viewsCount);
-
-  const activePosts = activeTab === 0 ? displayedPosts : sortedPosts;
+  const displayedPosts = activeTab === 0 ? posts.items : sortedPosts;
 
   return (
     <>
@@ -48,7 +45,7 @@ export const Home = () => {
       </Tabs>
       <Grid container spacing={4}>
         <Grid xs={8} item>
-          {(isPostsLoading ? [...Array(5)] : posts.items).map((obj, index) =>
+          {displayedPosts.map((obj, index) =>
             isPostsLoading ? (
               <Post key={index} isLoading={true} />
             ) : (
@@ -59,7 +56,7 @@ export const Home = () => {
                 user={obj.user}
                 createdAt={obj.createdAt}
                 viewsCount={obj.viewsCount}
-                commentsCount={obj.commentsCount} // Використовуємо правильне значення commentsCount
+                commentsCount={3}
                 tags={obj.tags}
                 isEditable={userData?._id === obj.user._id}
               />

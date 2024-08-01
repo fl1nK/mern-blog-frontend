@@ -32,8 +32,6 @@ export const FullPost = () => {
   }, [id]);
 
   const handleCommentAdded = (newComment) => {
-    console.log(comments);
-    console.log(newComment);
     setComments((prev) => [...prev, newComment]);
   };
 

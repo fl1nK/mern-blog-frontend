@@ -13,8 +13,6 @@ export const Header = () => {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
 
-  console.log(isAuth);
-
   const onClickLogout = () => {
     if (window.confirm('Ви точно хочете вийти?')) {
       dispatch(logout());
