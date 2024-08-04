@@ -7,11 +7,7 @@ export const UserInfo = ({ avatarUrl, fullname, additionalText }) => {
 
   return (
     <div className={styles.root}>
-      <img
-        className={styles.avatar}
-        src={avatarUrl ? `${process.env.REACT_APP_API_URL}${avatarUrl}` : '/noavatar.png'}
-        alt={fullname}
-      />
+      <img className={styles.avatar} src={avatarUrl ? avatarUrl : '/noavatar.png'} alt={fullname} />
       <div className={styles.userDetails}>
         <span className={styles.userName}>{fullname}</span>
         <span className={styles.additional}>{formattedDate}</span>

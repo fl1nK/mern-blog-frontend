@@ -82,10 +82,7 @@ export const Registration = () => {
           style={{ display: 'none' }}
         />
         <Button onClick={() => inputFileRef.current.click()}>
-          <Avatar
-            sx={{ width: 100, height: 100 }}
-            src={`${process.env.REACT_APP_API_URL}${imageUrl}`}
-          />
+          <Avatar sx={{ width: 100, height: 100 }} src={imageUrl} />
         </Button>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>

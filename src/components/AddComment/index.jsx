@@ -27,10 +27,7 @@ export const AddComment = ({ postId, onCommentAdded }) => {
 
   return (
     <div className={styles.root}>
-      <Avatar
-        classes={{ root: styles.avatar }}
-        src={`${process.env.REACT_APP_API_URL}${data?.avatarUrl}`}
-      />
+      <Avatar classes={{ root: styles.avatar }} src={data?.avatarUrl} />
       <div className={styles.form}>
         <form onSubmit={handleSubmit}>
           <TextField
